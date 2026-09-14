@@ -41,4 +41,27 @@ self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||new URL(e
     },
   };
 }
-export default defineConfig({ plugins: [react(), offline()] });
+const securityPolicy: Plugin = {
+  name: "onparmak-security-policy",
+  apply: "build",
+  transformIndexHtml() {
+    return [
+      {
+        tag: "meta",
+        attrs: {
+          "http-equiv": "Content-Security-Policy",
+          content:
+            "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'",
+        },
+        injectTo: "head-prepend",
+      },
+      {
+        tag: "meta",
+        attrs: { name: "referrer", content: "no-referrer" },
+        injectTo: "head-prepend",
+      },
+    ];
+  },
+};
+
+export default defineConfig({ plugins: [react(), securityPolicy, offline()] });

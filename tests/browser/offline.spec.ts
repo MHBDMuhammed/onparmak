@@ -9,6 +9,9 @@ test("production caches all local assets, reopens offline and preserves onboardi
     if (new URL(r.url()).hostname !== "127.0.0.1") external.push(r.url());
   });
   await page.goto("http://127.0.0.1:4173");
+  await expect(
+    page.locator('meta[http-equiv="Content-Security-Policy"]'),
+  ).toHaveAttribute("content", /connect-src 'self'/);
   await page.evaluate(() => navigator.serviceWorker.ready.then(() => true));
   await expect
     .poll(() =>
