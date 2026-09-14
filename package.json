@@ -29,6 +29,7 @@
     "dev": "vite",
     "dev:host": "vite --host 0.0.0.0",
     "build": "tsc -b && vite build",
+    "build:pages": "pnpm typecheck && vite build --base=/onparmak/",
     "preview": "vite preview",
     "test": "tsx --test tests/*.test.ts",
     "test:e2e": "pnpm build && playwright test",
