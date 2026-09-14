@@ -33,7 +33,7 @@ export function Guide() {
             <span className="guide-principle-icon">
               <Icon name={p.icon} size={25} />
             </span>
-            <h3>{p.title}</h3>
+            <p className="guide-principle-title">{p.title}</p>
             <p>{p.body}</p>
           </section>
         ))}
@@ -90,7 +90,7 @@ export function Guide() {
             <li>
               <span>01</span>
               <div>
-                <h3>Tanı</h3>
+                <p className="step-title">Tanı</p>
                 <p>
                   Yeni hareketi görsel rehberle, yavaş ve doğru öğren.
                   Parmakların her vuruştan sonra ana sıraya dönsün.
@@ -100,7 +100,7 @@ export function Guide() {
             <li>
               <span>02</span>
               <div>
-                <h3>Pekiştir</h3>
+                <p className="step-title">Pekiştir</p>
                 <p>
                   Yeni tuşu bildiğin tuşlarla karıştır. Gerçek kelimelerle
                   farklı geçişlerde tekrar kullan.
@@ -110,7 +110,7 @@ export function Guide() {
             <li>
               <span>03</span>
               <div>
-                <h3>Hatırla</h3>
+                <p className="step-title">Hatırla</p>
                 <p>
                   Görsel yardım olmadan aynı beceriyi yeni içerikte uygula.
                   Doğruluk hedefi ve öz değerlendirmen uygunsa sıradaki ders
@@ -153,7 +153,9 @@ export function Guide() {
           <Icon name="right" size={20} /> I
         </span>
         <div>
-          <h3>Türkçenin küçük ama önemli farkı.</h3>
+          <p className="turkish-note-title">
+            Türkçenin küçük ama önemli farkı.
+          </p>
           <p>
             i ve ı farklı tuşlardır. Büyük harfleri de İ ve I olarak ayrılır.
             Büyük harf için harfi yazan elinin karşısındaki Shift tuşunu kullan.

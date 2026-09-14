@@ -91,7 +91,7 @@ export function Home({
                 {String((lesson?.stage ?? 11) + 1).padStart(2, "0")} / 12
               </span>
             </div>
-            <h2>
+            <p className="hero-title">
               {completed === 60 ? (
                 <>
                   On parmak.
@@ -105,7 +105,7 @@ export function Home({
                   <em>{stage.title.split(" ").at(-1)}.</em>
                 </>
               )}
-            </h2>
+            </p>
             <p>
               {completed === 60
                 ? "Bütün yolu tamamladın. Şimdi bu beceriyi günlük hayatına taşı; kişisel tekrarlarla canlı tut."
@@ -162,7 +162,7 @@ export function Home({
         </section>
         <section className="daily-card">
           <div className="card-heading">
-            <h3>Bugünün niyeti</h3>
+            <p className="card-title-small">Bugünün niyeti</p>
             <Icon name="sun" size={19} />
           </div>
           <div className="daily-center">
@@ -174,11 +174,11 @@ export function Home({
               <small>dakika</small>
             </ProgressRing>
           </div>
-          <h4>
+          <p className="daily-note">
             {daily >= profile.goal
               ? "Bugün kendine iyi bir yatırım yaptın."
               : "Küçük bir zaman, kalıcı bir beceri."}
-          </h4>
+          </p>
           <p>
             {daily >= profile.goal
               ? "Ellerini dinlendir. Yarın buradan devam ederiz."
@@ -305,7 +305,7 @@ export function Home({
                 <span className="stage-number">
                   AŞAMA {String(s.id + 1).padStart(2, "0")}
                 </span>
-                <h3>{s.subtitle}</h3>
+                <p className="stage-preview-title">{s.subtitle}</p>
                 <p>{s.id === 0 ? "Parmaklarının evini bul." : s.title + "."}</p>
                 <div className="stage-preview-bottom">
                   <span>{count} / 5 ders</span>
@@ -337,7 +337,7 @@ export function Home({
             </span>
             <div>
               <p className="eyebrow">KİŞİSEL ANTRENÖRÜN</p>
-              <h3>
+              <p className="coach-header-title">
                 {reviews.length
                   ? "Tanıdık tuşları hatırlama zamanı."
                   : weak.length
@@ -345,7 +345,7 @@ export function Home({
                     : last
                       ? "Doğru hareketlerin yerleşiyor."
                       : "Seni tanıdıkça, sana uyum sağlar."}
-              </h3>
+              </p>
             </div>
             <span className="small-badge">SANA ÖZEL</span>
           </div>
@@ -392,7 +392,7 @@ export function Home({
             <Icon name="keyboard" size={25} />
             <span>↗</span>
           </div>
-          <h3>Biraz da serbest akış.</h3>
+          <p className="free-card-title">Biraz da serbest akış.</p>
           <p>
             1–5 dakika. Gerçek Türkçe.
             <br />

@@ -35,11 +35,11 @@ export function Course({
           </strong>
         </ProgressRing>
         <div>
-          <h3>
+          <p className="course-summary-title">
             {count === 60
               ? "Öğrenme yolunu tamamladın."
               : `${count} ders tamamlandı, sağlam bir temel kuruluyor.`}
-          </h3>
+          </p>
           <p>
             {count === 60
               ? "Mezuniyet bir bitiş değil. Kişisel tekrarlarla yetkinliğini koru, günlük hayatında kullan."
@@ -149,7 +149,9 @@ export function Course({
       <div className="course-end">
         <Icon name="graduate" size={27} />
         <div>
-          <h3>Hedef: klavyeyi değil, düşünceni takip etmek.</h3>
+          <p className="course-end-title">
+            Hedef: klavyeyi değil, düşünceni takip etmek.
+          </p>
           <p>
             Son değerlendirme: 5 dakika · %98 doğruluk · 35 kelime/dk · %60
             ritim · rehbersiz yazım

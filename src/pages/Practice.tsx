@@ -133,7 +133,7 @@ export function Practice({
           </div>
           <div className="card practice-note">
             <Icon name="leaf" size={24} />
-            <h3>Bir yarışta değilsin.</h3>
+            <p className="practice-note-title">Bir yarışta değilsin.</p>
             <p>
               Önce %95 doğruluğu koru. Ellerinin rahatlığına ve metnin akışına
               odaklan. Hız, temelin güçlendikçe gelir.

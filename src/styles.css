@@ -39,8 +39,6 @@
   }
   h1,
   h2,
-  h3,
-  h4,
   p {
     margin: 0;
   }
@@ -166,10 +164,6 @@
   h2 {
     letter-spacing: -0.035em;
   }
-  h3,
-  h4 {
-    letter-spacing: -0.025em;
-  }
   h1 {
     font-family: var(--serif);
     font-size: 39px;
@@ -180,11 +174,6 @@
     font-size: 21px;
     line-height: 1.35;
     font-weight: 600;
-  }
-  h3 {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.45;
   }
   p {
     color: var(--soft-text);
@@ -642,8 +631,9 @@
     color: var(--muted);
     margin-top: 7px;
   }
-  .card-heading h3 {
+  .card-title {
     font-size: 14px;
+    font-weight: 600;
   }
   .muted {
     color: var(--muted);
@@ -703,7 +693,7 @@
     font-size: 9px;
     letter-spacing: 2px;
   }
-  .hero-card h2 {
+  .hero-title {
     font-family: var(--serif);
     font-weight: 400;
     font-size: 39px;
@@ -711,8 +701,9 @@
     letter-spacing: -1px;
     margin: 25px 0 14px;
     max-width: 75%;
+    color: inherit;
   }
-  .hero-card h2 em {
+  .hero-title em {
     font-weight: 400;
     font-style: normal;
     color: #d9e8b5;
@@ -852,8 +843,9 @@
   .daily-card .card-heading {
     text-align: left;
   }
-  .daily-card .card-heading h3 {
+  .card-title-small {
     font-size: 12px;
+    font-weight: 600;
   }
   .daily-card .card-heading svg {
     color: var(--green-mid);
@@ -909,7 +901,7 @@
     color: var(--muted);
     margin-top: 4px;
   }
-  .daily-card h4 {
+  .daily-note {
     font-size: 11px;
     font-weight: 600;
   }
@@ -1121,8 +1113,9 @@
     color: var(--muted);
     letter-spacing: 1.2px;
   }
-  .stage-preview h3 {
+  .stage-preview-title {
     font-size: 16px;
+    font-weight: 600;
     margin: 4px 0 5px;
   }
   .stage-preview p {
@@ -1195,8 +1188,9 @@
     font-size: 7px;
     letter-spacing: 1.2px;
   }
-  .coach-header h3 {
+  .coach-header-title {
     font-size: 13px;
+    font-weight: 600;
     margin-top: 4px;
   }
   .small-badge {
@@ -1252,7 +1246,7 @@
     font-weight: 400;
     opacity: 0.65;
   }
-  .free-card h3 {
+  .free-card-title {
     font-family: var(--serif);
     font-size: 23px;
     font-weight: 400;
@@ -1303,8 +1297,9 @@
   .course-summary .progress-ring strong small {
     font-size: 10px;
   }
-  .course-summary h3 {
+  .course-summary-title {
     font-size: 14px;
+    font-weight: 600;
   }
   .course-summary p {
     font-size: 11px;
@@ -1456,11 +1451,12 @@
     margin-top: 8px;
     color: var(--green-mid);
   }
-  .course-end h3 {
+  .course-end-title {
     font-size: 13px;
+    font-weight: 600;
     color: var(--soft-text);
   }
-  .course-end p {
+  .course-end > div > p + p {
     font-size: 10px;
     margin-top: 5px;
     color: var(--muted);
@@ -1668,12 +1664,12 @@
     color: var(--green-mid);
     margin-bottom: 13px;
   }
-  .practice-note h3 {
+  .practice-note-title {
     font-family: var(--serif);
     font-size: 25px;
     font-weight: 400;
   }
-  .practice-note p {
+  .practice-note > p:not(.practice-note-title) {
     font-size: 11px;
     color: var(--muted);
     line-height: 1.9;
@@ -1836,8 +1832,9 @@
   .insight-card .eyebrow {
     font-size: 7px;
   }
-  .insight-card h3 {
+  .insight-title {
     font-size: 18px;
+    font-weight: 600;
     line-height: 1.4;
     margin: 9px 0;
   }
@@ -1966,8 +1963,9 @@
     width: 43px;
     margin-bottom: 15px;
   }
-  .achievement h3 {
+  .achievement-title {
     font-size: 12px;
+    font-weight: 600;
     color: var(--muted);
   }
   .achievement p {
@@ -1983,7 +1981,7 @@
     background: var(--green-soft);
     color: var(--green);
   }
-  .achievement.earned h3 {
+  .achievement.earned .achievement-title {
     color: var(--text);
   }
   .achievement small {
@@ -2009,10 +2007,11 @@
     color: var(--green-mid);
     flex-shrink: 0;
   }
-  .empty-progress h2 {
+  .empty-progress-title {
     font-size: 19px;
+    font-weight: 600;
   }
-  .empty-progress p {
+  .empty-progress > div > p + p {
     font-size: 11px;
     margin-top: 8px;
     max-width: 480px;
@@ -2072,8 +2071,9 @@
     color: var(--green);
     margin-bottom: 18px;
   }
-  .guide-principles h3 {
+  .guide-principle-title {
     font-size: 16px;
+    font-weight: 600;
   }
   .guide-principles p {
     font-size: 11px;
@@ -2140,10 +2140,11 @@
     padding-top: 3px;
     font-family: ui-monospace, monospace;
   }
-  .learning-steps h3 {
+  .learning-steps p.step-title {
     font-size: 13px;
+    font-weight: 600;
   }
-  .learning-steps p {
+  .learning-steps > li > div > p + p {
     font-size: 11px;
     color: var(--muted);
     margin-top: 5px;
@@ -2184,10 +2185,11 @@
     background: var(--line);
     margin: 0 5px;
   }
-  .turkish-note h3 {
+  .turkish-note p.turkish-note-title {
     font-size: 13px;
+    font-weight: 600;
   }
-  .turkish-note p {
+  .turkish-note > div > p + p {
     font-size: 11px;
     line-height: 1.9;
     color: var(--soft-text);
@@ -2986,7 +2988,7 @@
     color: var(--green-mid);
     margin-bottom: 11px;
   }
-  .typing-overlay h3 {
+  .typing-overlay-title {
     font-family: var(--serif);
     font-weight: 400;
     font-size: 24px;
@@ -3398,13 +3400,13 @@
   .result-grid .fine-print {
     font-size: 8px;
   }
-  .reflection h3 {
+  .reflection-title {
     margin: 10px 0 8px;
     font-family: var(--serif);
     font-size: 23px;
     font-weight: 400;
   }
-  .reflection > p:not(.eyebrow) {
+  .reflection > p:not(.eyebrow):not(.reflection-title) {
     font-size: 10px;
     color: var(--muted);
     line-height: 1.8;
@@ -3446,16 +3448,17 @@
     color: var(--green-mid);
     margin-top: 2px;
   }
-  .coach-result h3 {
+  .coach-result-title {
     font-size: 13px;
+    font-weight: 600;
   }
-  .coach-result p,
+  .coach-result > div > p:not(.coach-result-title),
   .coach-result li {
     font-size: 10px;
     color: var(--soft-text);
     line-height: 1.9;
   }
-  .coach-result p {
+  .coach-result > div > p:not(.coach-result-title) {
     margin-top: 7px;
   }
   .coach-result ul {
@@ -3595,7 +3598,7 @@
     .hero-card {
       min-height: 326px;
     }
-    .hero-card h2 {
+    .hero-title {
       font-size: 44px;
     }
     .hero-content {
@@ -3616,7 +3619,7 @@
     .daily-center {
       margin-top: 24px;
     }
-    .daily-card h4 {
+    .daily-note {
       font-size: 12px;
     }
     .daily-card > p {
@@ -3628,19 +3631,19 @@
     .stage-preview {
       padding: 24px;
     }
-    .stage-preview h3 {
+    .stage-preview-title {
       font-size: 18px;
     }
     .stage-preview p {
       font-size: 11px;
     }
-    .coach-header h3 {
+    .coach-header-title {
       font-size: 15px;
     }
     .coach-card > p {
       font-size: 12px;
     }
-    .free-card h3 {
+    .free-card-title {
       font-size: 27px;
     }
     .free-card > p {
@@ -3716,7 +3719,7 @@
       bottom: 26px;
       right: 25px;
     }
-    .hero-card h2 {
+    .hero-title {
       font-size: 36px;
     }
     .hero-content {
@@ -3763,7 +3766,7 @@
       height: 34px;
       width: 34px;
     }
-    .stage-preview h3 {
+    .stage-preview-title {
       font-size: 14px;
     }
     .lesson-segments i {
@@ -3782,13 +3785,13 @@
       flex-wrap: wrap;
       gap: 10px;
     }
-    .coach-header h3 {
+    .coach-header-title {
       font-size: 12px;
     }
     .free-card {
       padding: 20px;
     }
-    .free-card h3 {
+    .free-card-title {
       font-size: 22px;
     }
     .page-heading h1 {
@@ -3953,7 +3956,7 @@
     .hero-content {
       padding: 22px;
     }
-    .hero-card h2 {
+    .hero-title {
       font-size: 32px;
       margin-top: 27px;
       max-width: 100%;
@@ -3978,7 +3981,7 @@
     .daily-card {
       padding: 21px 16px 16px;
     }
-    .daily-card h4 {
+    .daily-note {
       font-size: 10px;
     }
     .daily-card > p {
@@ -4057,7 +4060,7 @@
       font-size: 5px;
       letter-spacing: 0.4px;
     }
-    .stage-preview h3 {
+    .stage-preview-title {
       font-size: 13px;
       min-height: 37px;
       display: flex;
@@ -4094,14 +4097,14 @@
     .coach-header .eyebrow {
       font-size: 6px;
     }
-    .coach-header h3 {
+    .coach-header-title {
       font-size: 11px;
     }
     .coach-card > p {
       font-size: 10px;
       line-height: 1.85;
     }
-    .free-card h3 {
+    .free-card-title {
       font-size: 20px;
     }
     .free-card > p {
@@ -4159,7 +4162,7 @@
     .insight-card {
       padding: 22px;
     }
-    .insight-card h3 {
+    .insight-title {
       font-size: 16px;
     }
     .skill-map > .card-heading {
@@ -4171,7 +4174,7 @@
     .achievement {
       padding: 18px 14px;
     }
-    .achievement h3 {
+    .achievement-title {
       font-size: 11px;
     }
     .achievement p {
@@ -4188,7 +4191,7 @@
     .empty-progress > .button {
       margin-left: 70px;
     }
-    .empty-progress h2 {
+    .empty-progress-title {
       font-size: 17px;
     }
     .guide-principles {
@@ -4197,7 +4200,7 @@
     .guide-principles .card {
       padding: 20px;
     }
-    .guide-principles h3 {
+    .guide-principle-title {
       font-size: 14px;
     }
     .guide-principles p {
@@ -4361,7 +4364,7 @@
       right: -1px;
       width: 165px;
     }
-    .hero-card h2 {
+    .hero-title {
       font-size: 35px;
     }
     .hero-card p {
@@ -4376,7 +4379,7 @@
     .daily-card {
       padding: 22px 17px 17px;
     }
-    .stage-preview h3 {
+    .stage-preview-title {
       font-size: 14px;
       min-height: auto;
     }
@@ -4420,10 +4423,10 @@
     .coach-card > p {
       font-size: 11px;
     }
-    .coach-header h3 {
+    .coach-header-title {
       font-size: 12px;
     }
-    .free-card h3 {
+    .free-card-title {
       font-size: 23px;
     }
     .free-card > p {
@@ -4603,7 +4606,7 @@
     .result-grid .eyebrow {
       font-size: 6px;
     }
-    .reflection h3 {
+    .reflection-title {
       font-size: 21px;
     }
     .checkbox-line {
@@ -4621,7 +4624,7 @@
     .metric-card > strong {
       font-size: 26px;
     }
-    .guide-principles h3 {
+    .guide-principle-title {
       font-size: 15px;
     }
     .settings-version {
@@ -4683,7 +4686,7 @@
     .hero-content {
       padding: 26px;
     }
-    .hero-card h2 {
+    .hero-title {
       font-size: 39px;
       max-width: 83%;
       margin-top: 24px;
@@ -4746,7 +4749,7 @@
       grid-column: 2;
       grid-row: 1;
     }
-    .daily-card .card-heading h3 {
+    .card-title-small {
       font-size: 12px;
     }
     .daily-card .card-heading svg {
@@ -4762,7 +4765,7 @@
       width: 90px !important;
       height: 90px !important;
     }
-    .daily-card h4 {
+    .daily-note {
       grid-column: 2;
       grid-row: 2;
       font-size: 10px;
@@ -4876,7 +4879,7 @@
       font-size: 7px;
       letter-spacing: 1px;
     }
-    .stage-preview h3 {
+    .stage-preview-title {
       grid-column: 2/4;
       grid-row: 2;
       font-size: 16px;
@@ -4912,7 +4915,7 @@
     .coach-card {
       padding: 22px;
     }
-    .coach-header h3 {
+    .coach-header-title {
       font-size: 13px;
     }
     .coach-header .eyebrow {
@@ -4952,7 +4955,7 @@
     .free-icon > span {
       font-size: 23px;
     }
-    .free-card h3 {
+    .free-card-title {
       font-size: 25px;
       grid-column: 1;
     }
@@ -4989,7 +4992,7 @@
       padding: 19px;
       gap: 15px;
     }
-    .course-summary h3 {
+    .course-summary-title {
       font-size: 12px;
     }
     .course-summary p {
@@ -5072,7 +5075,7 @@
       gap: 12px;
       align-items: flex-start;
     }
-    .course-end h3 {
+    .course-end-title {
       font-size: 12px;
     }
     .course-end p {
@@ -5206,7 +5209,7 @@
     .insight-card > .eyebrow {
       grid-column: 2;
     }
-    .insight-card h3 {
+    .insight-title {
       grid-column: 2;
       font-size: 17px;
     }
@@ -5224,7 +5227,7 @@
     .skill-map > .card-heading {
       padding: 0 6px;
     }
-    .skill-map .card-heading h3 {
+    .skill-map .card-title {
       font-size: 14px;
     }
     .skill-map .card-heading p {
@@ -5319,7 +5322,7 @@
     .achievement {
       padding: 21px 18px;
     }
-    .achievement h3 {
+    .achievement-title {
       font-size: 12px;
     }
     .achievement p {
@@ -5371,7 +5374,7 @@
       grid-row: 1/3;
       margin: 0;
     }
-    .guide-principles h3 {
+    .guide-principle-title {
       grid-column: 2;
       font-size: 16px;
     }
@@ -5419,7 +5422,7 @@
     .guide-details h2 {
       font-size: 24px;
     }
-    .learning-steps h3 {
+    .learning-steps p.step-title {
       font-size: 13px;
     }
     .learning-steps p {
@@ -5444,7 +5447,7 @@
     .turkish-glyphs svg {
       width: 18px;
     }
-    .turkish-note h3 {
+    .turkish-note p.turkish-note-title {
       font-size: 14px;
     }
     .turkish-note p {
@@ -5830,7 +5833,7 @@
       inset: 38px 0 50px;
       padding: 18px;
     }
-    .typing-overlay h3 {
+    .typing-overlay-title {
       font-size: 23px;
       max-width: 270px;
     }
@@ -6046,7 +6049,7 @@
     .result-grid .fine-print {
       font-size: 9px;
     }
-    .reflection h3 {
+    .reflection-title {
       font-size: 24px;
       margin-top: 13px;
     }
@@ -6070,7 +6073,7 @@
     .coach-result > svg {
       width: 20px;
     }
-    .coach-result h3 {
+    .coach-result-title {
       font-size: 13px;
     }
     .coach-result p,
@@ -6114,7 +6117,7 @@
     .hero-content {
       padding: 22px;
     }
-    .hero-card h2 {
+    .hero-title {
       font-size: 35px;
     }
     .hero-art {
@@ -6136,7 +6139,7 @@
       column-gap: 13px;
       padding: 18px;
     }
-    .daily-card h4 {
+    .daily-note {
       font-size: 9px;
     }
     .week-strip {

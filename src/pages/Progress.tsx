@@ -99,7 +99,9 @@ export function Progress({
             <Icon name="sprout" size={37} />
           </span>
           <div>
-            <h2>İlk izini bırakmaya hazır mısın?</h2>
+            <p className="empty-progress-title">
+              İlk izini bırakmaya hazır mısın?
+            </p>
             <p>
               İlk çalışmandan sonra hangi tuşların güçlendiğini ve ritminin
               nasıl değiştiğini burada göreceksin.
@@ -144,7 +146,7 @@ export function Progress({
       <div className="progress-mid-grid">
         <section className="card activity-card">
           <div className="card-heading">
-            <h3>Pratiğin ritmi</h3>
+            <p className="card-title">Pratiğin ritmi</p>
             <span className="muted">dakika / gün</span>
           </div>
           <div
@@ -183,7 +185,7 @@ export function Progress({
             <Icon name="sparkles" />
           </span>
           <p className="eyebrow">SIRADAKİ EN İYİ ADIM</p>
-          <h3>
+          <p className="insight-title">
             {due.length
               ? "Hatırlamaya zaman ayır."
               : weak.length
@@ -191,7 +193,7 @@ export function Progress({
                 : all.length
                   ? "Doğruluğun sağlam. Şimdi pekiştir."
                   : "Önce bir başlangıç noktası."}
-          </h3>
+          </p>
           <p>
             {due.length
               ? `${due.length} tuş aralıklı tekrar bekliyor.`
@@ -216,7 +218,7 @@ export function Progress({
       <section className="card skill-map">
         <div className="card-heading">
           <div>
-            <h3>Ellerinin öğrenme haritası</h3>
+            <p className="card-title">Ellerinin öğrenme haritası</p>
             <p>
               En az 30 vuruş, üç ayrı tur ve yakın dönem doğruluğu birlikte
               değerlendirilir.
@@ -305,7 +307,7 @@ export function Progress({
               <span>
                 <Icon name={earned ? "trophy" : "lock"} size={23} />
               </span>
-              <h3>{a.title}</h3>
+              <p className="achievement-title">{a.title}</p>
               <p>{a.description}</p>
               {earned && (
                 <small>
@@ -320,7 +322,7 @@ export function Progress({
       {all.length > 0 && (
         <section className="card session-history">
           <div className="card-heading">
-            <h3>Son çalışmaların</h3>
+            <p className="card-title">Son çalışmaların</p>
             <span className="muted">Son 10 oturum</span>
           </div>
           <div className="table-wrap">
