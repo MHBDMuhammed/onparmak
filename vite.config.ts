@@ -12,6 +12,10 @@ function offline(): Plugin {
         "./",
         "./index.html",
         "./favicon.svg",
+        "./robots.txt",
+        "./sitemap.xml",
+        "./og-image.png",
+        "./apple-touch-icon.png",
         ...Object.keys(bundle)
           .filter((k) => !k.endsWith(".map"))
           .map((k) => "./" + k),
