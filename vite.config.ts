@@ -1,0 +1,30 @@
+import { defineConfig, type Plugin } from "vite";
+import react from "@vitejs/plugin-react";
+
+// Precache the actual hashed build; the published app can reopen without a network.
+function offline(): Plugin {
+  return {
+    name: "onparmak-offline",
+    apply: "build",
+    generateBundle(_options, bundle) {
+      const assets = [
+        "./",
+        "./index.html",
+        "./favicon.svg",
+        ...Object.keys(bundle)
+          .filter((k) => !k.endsWith(".map"))
+          .map((k) => "./" + k),
+      ];
+      const cache = "onparmak-" + Object.keys(bundle).sort().join("-");
+      this.emitFile({
+        type: "asset",
+        fileName: "sw.js",
+        source: `const CACHE=${JSON.stringify(cache)};const FILES=${JSON.stringify(assets)};
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES.map(file=>new Request(file,{cache:'reload'}))))));
+self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('onparmak-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||new URL(event.request.url).origin!==self.location.origin)return;event.respondWith(caches.open(CACHE).then(async cache=>{const stored=await cache.match(event.request,{ignoreVary:true});if(stored)return stored;try{return await fetch(event.request);}catch(error){if(event.request.mode==='navigate')return cache.match('./index.html',{ignoreVary:true});throw error;}}));});`,
+      });
+    },
+  };
+}
+export default defineConfig({ plugins: [react(), offline()] });
