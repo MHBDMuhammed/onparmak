@@ -8,9 +8,10 @@
     "pnpm": ">=12.4.1 <13"
   },
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "vite",
+    "dev:host": "vite --host 0.0.0.0",
     "build": "tsc -b && vite build",
-    "preview": "vite preview --host 0.0.0.0",
+    "preview": "vite preview",
     "test": "tsx --test tests/*.test.ts",
     "test:e2e": "pnpm build && playwright test",
     "format": "prettier --write src tests *.ts *.json index.html README.md"
