@@ -369,7 +369,17 @@ export default function App() {
                 <Icon name="leaf" size={14} /> Hız geçici bir sayı. İyi bir
                 alışkanlık kalıcıdır.
               </span>
-              <span>Türkçe için, özenle.</span>
+              <span>
+                Türkçe için, özenle. ·{" "}
+                <a
+                  href="https://mhbd.dev"
+                  target="_blank"
+                  rel="author noopener noreferrer"
+                  aria-label="Geliştirici web sitesi: mhbd.dev"
+                >
+                  mhbd.dev
+                </a>
+              </span>
             </footer>
           </div>
         </div>
