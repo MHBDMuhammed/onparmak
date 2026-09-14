@@ -113,7 +113,7 @@ State akışı, engine invariants, storage şeması ve offline build ayrıntıla
 
 Canonical production adresi [onparmak.mhbd.dev](https://onparmak.mhbd.dev/)'dir. Cloudflare Pages için build komutu `pnpm build`, çıktı klasörü `dist` olmalıdır. Repository'deki GitHub Pages workflow'u `/onparmak/` alt yolunda doğrulanmış ikincil statik yayın üretmeye devam eder.
 
-Service worker kendi deployment scope'unda sürümlenir, eski Onparmak cache'lerini temizler ve bağlantı yokken uygulama kabuğunu geri yükler.
+Service worker kendi deployment scope'unda sürümlenir, eski Onparmak cache'lerini temizler ve bağlantı yokken uygulama kabuğunu geri yükler. `public/_headers` Cloudflare için güvenli header ve cache politikasını tanımlar (CSP yalnızca `index.html` meta etiketinde yaşar); `scripts/check-build.mjs` canonical URL, SEO metadata, precache kapsamı, header kontratı ve harici runtime URL yokluğunu doğrular. `tests/browser/seo.spec.ts` ve `tests/browser/production.spec.ts` bu kontratı her production build'de korur.
 
 ## Katkı
 

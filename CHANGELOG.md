@@ -7,10 +7,15 @@ Bu dosya Onparmak'ın kullanıcıya ve contributor'a dokunan önemli değişikli
 ### Eklendi
 
 - Uygulama footer'ına `mhbd.dev` geliştirici imzası
+- Türkçe SEO metadata'sı: arama açıklaması, canonical, robots/sitemap, Open Graph, Twitter kartı, yerel sosyal önizleme görseli ve JSON-LD
+- Cloudflare `_headers` ile güvenli cache/header politikası ve offline precache'e SEO/icon asset'leri
+- Production SEO, cache ve bundle bütçesi için browser regresyon testleri
 
 ### Değişti
 
 - Canonical canlı uygulama adresi `https://onparmak.mhbd.dev/` olarak güncellendi
+- Semantic heading hiyerarşisi düzeltildi; görsel kart başlıkları paragraf stiline taşındı
+- Kullanılmayan Lucide icon import'ları temizlendi
 
 ## [1.0.0] - 2026-09-14
 
