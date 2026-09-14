@@ -64,7 +64,7 @@ body:
     attributes:
       label: Nerede gördünüz?
       options:
-        - GitHub Pages canlı sürümünde
+        - onparmak.mhbd.dev canlı sürümünde
         - Güncel main branch'inde
         - Eski bir commit veya fork'ta
     validations:

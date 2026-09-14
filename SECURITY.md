@@ -2,7 +2,7 @@
 
 ## Desteklenen sürüm
 
-Onparmak tek bir statik web uygulaması olarak yayımlanır. Yalnızca `main` branch'indeki ve canlı GitHub Pages sürümündeki güncel kod güvenlik düzeltmeleri alır.
+Onparmak tek bir statik web uygulaması olarak yayımlanır. Yalnızca `main` branch'indeki ve [canlı production sürümündeki](https://onparmak.mhbd.dev/) güncel kod güvenlik düzeltmeleri alır.
 
 | Sürüm                       | Destek |
 | --------------------------- | ------ |

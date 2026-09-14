@@ -4,7 +4,13 @@ Bu dosya Onparmak'ın kullanıcıya ve contributor'a dokunan önemli değişikli
 
 ## [Unreleased]
 
-Henüz yayımlanmamış değişiklik yok.
+### Eklendi
+
+- Uygulama footer'ına `mhbd.dev` geliştirici imzası
+
+### Değişti
+
+- Canonical canlı uygulama adresi `https://onparmak.mhbd.dev/` olarak güncellendi
 
 ## [1.0.0] - 2026-09-14
 

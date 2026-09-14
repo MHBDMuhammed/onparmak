@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="https://mhbdmuhammed.github.io/onparmak/"><strong>Canlı uygulamayı aç</strong></a>
+  <a href="https://onparmak.mhbd.dev/"><strong>Canlı uygulamayı aç</strong></a>
 </p>
 
 Onparmak, Türkçe Q klavyede sıfırdan gerçek on parmak yetkinliğine ilerleyen açık kaynak bir öğrenme uygulamasıdır. Yalnızca hız testi sunmaz; doğru motor alışkanlık, doğruluk, ritim, kalıcılık ve gerçek Türkçe metinlere aktarımı birlikte çalıştırır.
@@ -111,7 +111,9 @@ State akışı, engine invariants, storage şeması ve offline build ayrıntıla
 
 `pnpm build` çıktısı `dist/` altında oluşur ve herhangi bir statik HTTPS hosting'e yüklenebilir. `vite dev` ve `vite preview` production sunucusu değildir.
 
-`main` branch'indeki CI başarıyla tamamlandığında GitHub Pages workflow'u uygulamayı `/onparmak/` alt yolu için build eder ve yayınlar. Service worker aynı deployment scope'unda sürümlenir, eski Onparmak cache'lerini temizler ve bağlantı yokken uygulama kabuğunu geri yükler.
+Canonical production adresi [onparmak.mhbd.dev](https://onparmak.mhbd.dev/)'dir. Cloudflare Pages için build komutu `pnpm build`, çıktı klasörü `dist` olmalıdır. Repository'deki GitHub Pages workflow'u `/onparmak/` alt yolunda doğrulanmış ikincil statik yayın üretmeye devam eder.
+
+Service worker kendi deployment scope'unda sürümlenir, eski Onparmak cache'lerini temizler ve bağlantı yokken uygulama kabuğunu geri yükler.
 
 ## Katkı
 
@@ -125,4 +127,4 @@ Onparmak is a privacy-first, offline-capable touch-typing course built specifica
 
 ## Lisans
 
-Kod ve repository içeriği [MIT Lisansı](./LICENSE) ile yayımlanır. © 2026 Muhammed Bodruk.
+[Muhammed Bodruk](https://mhbd.dev) tarafından geliştirildi. Kod ve repository içeriği [MIT Lisansı](./LICENSE) ile yayımlanır. © 2026 Muhammed Bodruk.
