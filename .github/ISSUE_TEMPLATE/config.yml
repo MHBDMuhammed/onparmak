@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Güvenlik açığı bildir
+    url: https://github.com/MHBDMuhammed/onparmak/security/advisories/new
+    about: Güvenlik etkisi olan raporları özel olarak gönderin.
+  - name: Destek rehberi
+    url: https://github.com/MHBDMuhammed/onparmak/blob/main/SUPPORT.md
+    about: Hangi soru ve sorun için hangi kanalı kullanacağınızı görün.
