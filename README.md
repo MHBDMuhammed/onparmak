@@ -3,8 +3,8 @@
 Türkçe Q klavyede on parmak öğrenmek için yerel çalışan bir eğitim uygulaması. Vite, React ve TypeScript; sunucu, hesap veya harici içerik servisi yoktur.
 
 ```sh
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Uygulama `http://localhost:5173` adresinde açılır. Yazma dersleri fiziksel Türkçe Q klavye içindir. Küçük ekranlarda bütün ekranlar kullanılabilir; yazmak için yine fiziksel klavye gerekir.
@@ -28,13 +28,13 @@ Serbest antrenmanda 1–5 dakika ve dört içerik türü bulunur. Yerel kelime h
 ## Doğrulama
 
 ```sh
-npm test             # Motor, Türkçe düzeni, 60 ders, adaptasyon, kayıt
-npm run build        # TypeScript ve üretim paketi
-npm run test:e2e     # Chrome üzerinde gerçek kullanıcı akışları
-npm run preview     # Üretim paketini yerelde aç
+pnpm test             # Motor, Türkçe düzeni, 60 ders, adaptasyon, kayıt
+pnpm build            # TypeScript ve üretim paketi
+pnpm test:e2e         # Chrome üzerinde gerçek kullanıcı akışları
+pnpm preview          # Üretim paketini yerelde aç
 ```
 
-Tarayıcı testleri kurulu Google Chrome kullanır. Kaynak kodu biçimlendirmek için `npm run format` çalıştırılabilir.
+Tarayıcı testleri kurulu Google Chrome kullanır. Kaynak kodu biçimlendirmek için `pnpm format` çalıştırılabilir.
 
 Üretim sürümü, ilk başarılı açılışın ardından kendi dosyalarını service worker ile önbelleğe alır ve internet olmadan yeniden açılabilir. `dist/` herhangi bir statik sunucuda HTTPS ile yayınlanabilir. Yerel geliştirme de internet bağlantısı istemez; ilk bağımlılık kurulumu internet gerektirebilir.
 
