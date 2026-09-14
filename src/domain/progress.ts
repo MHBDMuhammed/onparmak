@@ -109,17 +109,18 @@ const metricKeys = [
 ] as const;
 function validMetrics(v: unknown): v is Metrics {
   if (!plain(v) || !metricKeys.every((key) => finite(v[key]))) return false;
+  const metrics = v as Record<(typeof metricKeys)[number], number>;
   return (
-    Number.isInteger(v.attempts) &&
-    v.correct <= v.attempts &&
-    v.errors === v.attempts - v.correct &&
-    v.corrected <= v.errors &&
-    v.uncorrected <= v.errors &&
-    v.accuracy <= 100 &&
-    v.consistency <= 100 &&
-    v.progress <= 1 &&
-    Number.isInteger(v.pauses) &&
-    Number.isInteger(v.wrongShift)
+    Number.isInteger(metrics.attempts) &&
+    metrics.correct <= metrics.attempts &&
+    metrics.errors === metrics.attempts - metrics.correct &&
+    metrics.corrected <= metrics.errors &&
+    metrics.uncorrected <= metrics.errors &&
+    metrics.accuracy <= 100 &&
+    metrics.consistency <= 100 &&
+    metrics.progress <= 1 &&
+    Number.isInteger(metrics.pauses) &&
+    Number.isInteger(metrics.wrongShift)
   );
 }
 export function parseProfile(raw: string): Profile {

@@ -142,8 +142,11 @@ export class TypingEngine {
       this.status === "running" &&
       this.duration &&
       this.elapsed(now) >= this.duration
-    )
+    ) {
       this.finish(now);
+      return true;
+    }
+    return false;
   }
   finish(now: number) {
     if (this.status === "finished") return;

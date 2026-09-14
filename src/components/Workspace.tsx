@@ -92,8 +92,7 @@ export function Workspace({
   useEffect(() => {
     const timer = window.setInterval(() => {
       if (engine.status === "running") {
-        engine.tick(now());
-        if (engine.status === "finished") setResult(engine.metrics(now()));
+        if (engine.tick(now())) setResult(engine.metrics(now()));
         render((n) => n + 1);
       }
     }, 150);

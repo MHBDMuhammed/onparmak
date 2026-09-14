@@ -55,7 +55,13 @@ test("dialog focus stays inside, paste and held letters cannot type, held backsp
   page,
 }) => {
   await page.goto("/");
-  expect(await page.locator(".app-shell").evaluate((e) => e.inert)).toBe(true);
+  expect(
+    await page
+      .locator(".app-shell")
+      .evaluate((element) =>
+        element instanceof HTMLElement ? element.inert : false,
+      ),
+  ).toBe(true);
   await page.keyboard.press("Shift+Tab");
   await expect(
     page.getByRole("button", { name: "Devam et", exact: true }),
