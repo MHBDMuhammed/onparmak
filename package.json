@@ -17,7 +17,8 @@
     "typecheck": "tsc -b",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "check": "pnpm format:check && pnpm lint && pnpm test && pnpm build"
   },
   "dependencies": {
     "lucide-react": "^1.45.0",
