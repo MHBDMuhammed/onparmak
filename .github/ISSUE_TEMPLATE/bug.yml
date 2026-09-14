@@ -1,0 +1,87 @@
+name: Hata bildirimi
+description: Tekrarlanabilir bir ürün, kurulum veya build hatası bildirin.
+title: "bug: "
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Teşekkürler. Güvenlik açıklarını ve gerçek kullanıcı yedeklerini buraya eklemeyin; Security sekmesindeki özel bildirim kanalını kullanın.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Etkilenen alan
+      options:
+        - Yazma alanı / ölçümler
+        - Müfredat / ilerleme
+        - Serbest antrenman
+        - Yerel kayıt / yedek
+        - Offline / service worker
+        - Erişilebilirlik / responsive görünüm
+        - Kurulum / test / build
+        - Diğer
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Ne oldu?
+      description: Gözlenen davranışı ve bunun neden problem olduğunu açıkça anlatın.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Tekrarlama adımları
+      placeholder: |
+        1. ... ekranını aç
+        2. ... tuşuna bas
+        3. ... davranışını gör
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Beklenen davranış
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Ortam
+      description: İşletim sistemi, tarayıcı ve sürümleri; yerel geliştirmeyse Node sürümü.
+      placeholder: macOS 15, Firefox 145 veya Node 22.23
+    validations:
+      required: true
+
+  - type: dropdown
+    id: source
+    attributes:
+      label: Nerede gördünüz?
+      options:
+        - GitHub Pages canlı sürümünde
+        - Güncel main branch'inde
+        - Eski bir commit veya fork'ta
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Ek bağlam
+      description: Kişisel veri içermeyen konsol çıktısı veya ekran görüntüsü ekleyebilirsiniz.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Kontrol
+      options:
+        - label: Aynı problemi mevcut issue'larda aradım.
+          required: true
+        - label: Rapora credential, kişisel yedek veya özel veri eklemedim.
+          required: true
