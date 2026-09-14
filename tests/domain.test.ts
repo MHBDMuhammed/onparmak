@@ -31,7 +31,6 @@ import {
   weaknesses,
   reviewTargets,
   type Session,
-  type Profile,
 } from "../src/domain/progress";
 
 const reflection = { comfortable: true, blind: true, fingers: true };

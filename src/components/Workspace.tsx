@@ -93,12 +93,17 @@ export function Workspace({
     const timer = window.setInterval(() => {
       if (engine.status === "running") {
         engine.tick(now());
-        sync();
+        if (engine.status === "finished") setResult(engine.metrics(now()));
+        render((n) => n + 1);
       }
     }, 150);
-    const blur = () => pause();
+    const blur = () => {
+      engine.pause(now());
+      shifts.current = { left: false, right: false };
+      render((n) => n + 1);
+    };
     const visibility = () => {
-      if (document.hidden) pause();
+      if (document.hidden) blur();
     };
     window.addEventListener("blur", blur);
     document.addEventListener("visibilitychange", visibility);

@@ -10,8 +10,9 @@ class ErrorBoundary extends Component<
   static getDerivedStateFromError() {
     return { error: true };
   }
-  componentDidCatch(error: Error, _info: ErrorInfo) {
+  componentDidCatch(error: Error, info: ErrorInfo) {
     console.error("Onparmak uygulama hatası:", error);
+    console.error(info.componentStack);
   }
   render() {
     if (this.state.error)

@@ -535,7 +535,7 @@ export const stages: Stage[] = stageSpecs.map((stage, si) => {
         learned += spec[1].replaceAll(" ", "");
       if (si < 6 && li === 4) learned += stage.add;
       if (si === 6) learned += LETTERS + LETTERS.toLocaleUpperCase("tr-TR");
-      if (si === 7) learned += spec[1].match(/[.,;:?!'"()\-]/g)?.join("") ?? "";
+      if (si === 7) learned += spec[1].match(/[-.,;:?!'"()]/g)?.join("") ?? "";
       if (si === 7 && li === 4) learned += stage.add;
       if (si === 8)
         learned += li === 0 ? "12345" : li === 1 ? "67890" : stage.add;

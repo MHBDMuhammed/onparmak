@@ -3,7 +3,6 @@ import { lessons, stages, type Lesson } from "./content/curriculum";
 import {
   achievements,
   completedCount,
-  freshProfile,
   isUnlocked,
   loadProfile,
   needsReview,
