@@ -4,6 +4,7 @@ import { lowerTR } from "./keyboard";
 
 export const STORAGE_KEY = "onparmak.progress.v1";
 export const DAY = 86_400_000;
+export const MAX_BACKUP_BYTES = 8_000_000;
 export interface Skill {
   attempts: number;
   errors: number;
@@ -89,7 +90,41 @@ function validSkill(v: unknown): v is Skill {
     Number(v.interval) <= 30
   );
 }
+const metricKeys = [
+  "elapsed",
+  "attempts",
+  "correct",
+  "errors",
+  "corrected",
+  "uncorrected",
+  "accuracy",
+  "rawWpm",
+  "netWpm",
+  "consistency",
+  "progress",
+  "pauses",
+  "wrongShift",
+  "earlyWpm",
+  "lateWpm",
+] as const;
+function validMetrics(v: unknown): v is Metrics {
+  if (!plain(v) || !metricKeys.every((key) => finite(v[key]))) return false;
+  return (
+    Number.isInteger(v.attempts) &&
+    v.correct <= v.attempts &&
+    v.errors === v.attempts - v.correct &&
+    v.corrected <= v.errors &&
+    v.uncorrected <= v.errors &&
+    v.accuracy <= 100 &&
+    v.consistency <= 100 &&
+    v.progress <= 1 &&
+    Number.isInteger(v.pauses) &&
+    Number.isInteger(v.wrongShift)
+  );
+}
 export function parseProfile(raw: string): Profile {
+  if (new TextEncoder().encode(raw).byteLength > MAX_BACKUP_BYTES)
+    throw new Error("Yedek dosyası 8 MB sınırını aşıyor.");
   const data: unknown = JSON.parse(raw);
   if (
     !plain(data) ||
@@ -106,27 +141,14 @@ export function parseProfile(raw: string): Profile {
     Object.keys(data.transitions).length > 10000 ||
     data.sessions.length > 500 ||
     !Object.values(data.skills).every(validSkill) ||
-    !Object.values(data.transitions).every(validSkill)
+    !Object.values(data.transitions).every(validSkill) ||
+    !Object.keys(data.skills).every((key) => [...key].length === 1) ||
+    !Object.keys(data.transitions).every((key) => [...key].length === 2)
   )
     throw new Error("Beceri kayıtları okunamadı.");
-  const metricsKeys = [
-    "elapsed",
-    "attempts",
-    "correct",
-    "errors",
-    "corrected",
-    "uncorrected",
-    "accuracy",
-    "rawWpm",
-    "netWpm",
-    "consistency",
-    "progress",
-    "pauses",
-    "wrongShift",
-    "earlyWpm",
-    "lateWpm",
-  ];
+  const lessonIds = new Set(lessons.map((lesson) => lesson.id));
   if (
+    !Object.keys(data.lessons).every((id) => lessonIds.has(id)) ||
     !Object.values(data.lessons).every(
       (v) =>
         plain(v) &&
@@ -134,9 +156,20 @@ export function parseProfile(raw: string): Profile {
         v.rounds <= 3 &&
         Number.isInteger(v.rounds) &&
         finite(v.bestAccuracy) &&
+        v.bestAccuracy <= 100 &&
         (v.completedAt === undefined || finite(v.completedAt)),
     ) ||
-    !Object.values(data.confusions).every(finite)
+    Object.keys(data.confusions).length > 1000 ||
+    !Object.entries(data.confusions).every(([pair, count]) => {
+      const [expected, actual, extra] = pair.split("→");
+      return (
+        extra === undefined &&
+        [...expected].length === 1 &&
+        [...actual].length === 1 &&
+        finite(count) &&
+        Number.isInteger(count)
+      );
+    })
   )
     throw new Error("İlerleme kayıtları okunamadı.");
   if (
@@ -144,31 +177,40 @@ export function parseProfile(raw: string): Profile {
       (s) =>
         plain(s) &&
         typeof s.id === "string" &&
+        s.id.length > 0 &&
+        s.id.length <= 100 &&
         finite(s.at) &&
         ["lesson", "review", "practice"].includes(String(s.mode)) &&
         finite(s.round) &&
+        Number.isInteger(s.round) &&
+        s.round <= 2 &&
+        (s.lessonId === undefined ||
+          (typeof s.lessonId === "string" && lessonIds.has(s.lessonId))) &&
         typeof s.passed === "boolean" &&
         typeof s.comfortable === "boolean" &&
         typeof s.blind === "boolean" &&
         typeof s.fingers === "boolean" &&
+        typeof s.assisted === "boolean" &&
         Array.isArray(s.targets) &&
-        s.targets.every((t) => typeof t === "string") &&
-        plain(s.metrics) &&
-        metricsKeys.every((k) =>
-          finite((s.metrics as Record<string, unknown>)[k]),
-        ),
+        s.targets.length <= 10 &&
+        s.targets.every((t) => typeof t === "string" && [...t].length <= 2) &&
+        validMetrics(s.metrics),
     )
   )
     throw new Error("Oturum kayıtları okunamadı.");
   if (
     data.earned !== undefined &&
-    (!plain(data.earned) || !Object.values(data.earned).every(finite))
+    (!plain(data.earned) ||
+      Object.keys(data.earned).length > 100 ||
+      !Object.entries(data.earned).every(
+        ([id, at]) => id.length <= 50 && finite(at),
+      ))
   )
     throw new Error("Kazanım kayıtları okunamadı.");
   return {
     ...freshProfile(),
     ...data,
-    name: typeof data.name === "string" ? data.name.slice(0, 30) : "",
+    name: typeof data.name === "string" ? data.name.trim().slice(0, 30) : "",
     goal: [5, 10, 15, 20].includes(Number(data.goal)) ? Number(data.goal) : 10,
     theme: ["light", "dark", "system"].includes(String(data.theme))
       ? (data.theme as Profile["theme"])

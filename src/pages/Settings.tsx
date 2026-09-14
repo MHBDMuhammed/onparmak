@@ -3,6 +3,7 @@ import {
   completedCount,
   dateKey,
   freshProfile,
+  MAX_BACKUP_BYTES,
   parseProfile,
   type Profile,
 } from "../domain/progress";
@@ -40,7 +41,7 @@ export function Settings({
     if (!file) return;
     setError("");
     try {
-      if (file.size > 8_000_000)
+      if (file.size > MAX_BACKUP_BYTES)
         throw new Error("Yedek dosyası 8 MB sınırını aşıyor.");
       setImported(parseProfile(await file.text()));
     } catch (e) {

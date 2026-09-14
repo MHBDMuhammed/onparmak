@@ -318,6 +318,22 @@ test("persistent profile roundtrips and rejects malformed or incompatible data",
       lessons: { s1l1: { rounds: 99, bestAccuracy: 100 } },
     }),
     JSON.stringify({ ...p, sessions: [{ metrics: {} }] }),
+    JSON.stringify({
+      ...p,
+      lessons: { unknown: { rounds: 3, bestAccuracy: 100 } },
+    }),
+    JSON.stringify({ ...p, skills: { tooLong: p.skills.f } }),
+    JSON.stringify({ ...p, sessions: [{ ...p.sessions[0], assisted: "yes" }] }),
+    JSON.stringify({
+      ...p,
+      sessions: [
+        {
+          ...p.sessions[0],
+          metrics: { ...p.sessions[0].metrics, accuracy: 101 },
+        },
+      ],
+    }),
+    JSON.stringify({ ...p, confusions: { "ab→c": 1 } }),
   ])
     assert.throws(() => parseProfile(invalid));
 });
