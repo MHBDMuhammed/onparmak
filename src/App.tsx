@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { lessons, stages, type Lesson } from "./content/curriculum";
 import {
   achievements,
@@ -54,13 +54,10 @@ export default function App() {
   );
   const isDark =
     profile.theme === "dark" || (profile.theme === "system" && systemDark);
-  const profileRef = useRef(profile);
-  profileRef.current = profile;
   useEffect(() => {
     if (blockedStorage) return;
     try {
       saveProfile(profile);
-      setStorageError("");
     } catch {
       setStorageError(
         "Tarayıcı kaydı yapılamadı. Bu oturum açıkken ilerlemen korunur; Ayarlar bölümünden yedek indir.",
@@ -112,7 +109,7 @@ export default function App() {
     });
   };
   function start(options: Parameters<typeof makeTraining>[1]) {
-    setTraining(makeTraining(profileRef.current, options));
+    setTraining(makeTraining(profile, options));
     setTrainingKey((k) => k + 1);
     setIntro(null);
     setReviewGate(null);
@@ -130,7 +127,7 @@ export default function App() {
     setIntro(lesson);
   }
   function save(session: Session, engine: TypingEngine) {
-    const previous = profileRef.current;
+    const previous = profile;
     const next = recordSession(previous, session, engine.strokes);
     setProfile(next);
     const earned = achievements.filter(
@@ -141,7 +138,7 @@ export default function App() {
   }
   function afterSession() {
     if (training?.mode === "lesson" || training?.mode === "review") {
-      const lesson = nextLesson(profileRef.current);
+      const lesson = nextLesson(profile);
       if (lesson) {
         setTraining(null);
         requestLesson(lesson);
