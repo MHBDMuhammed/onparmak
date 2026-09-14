@@ -105,6 +105,8 @@ tests/
 
 Domain mantığı React görünümünden ayrıdır. Eğitim içeriği component'lere gömülmez. Projede bilerek backend veya hesap katmanı bulunmaz; yerel ve statik mimari ürünün gizlilik modelidir.
 
+State akışı, engine invariants, storage şeması ve offline build ayrıntıları için [mimari bakım notlarına](./docs/ARCHITECTURE.md) bakın.
+
 ## Production ve yayın
 
 `pnpm build` çıktısı `dist/` altında oluşur ve herhangi bir statik HTTPS hosting'e yüklenebilir. `vite dev` ve `vite preview` production sunucusu değildir.
