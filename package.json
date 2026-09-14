@@ -13,7 +13,13 @@
     "url": "https://github.com/MHBDMuhammed/onparmak/issues"
   },
   "homepage": "https://mhbdmuhammed.github.io/onparmak/",
-  "keywords": ["typing", "touch-typing", "turkish", "keyboard", "education"],
+  "keywords": [
+    "typing",
+    "touch-typing",
+    "turkish",
+    "keyboard",
+    "education"
+  ],
   "type": "module",
   "engines": {
     "node": ">=22.12.0 <25",

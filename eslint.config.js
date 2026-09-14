@@ -9,10 +9,7 @@ export default defineConfig(
   globalIgnores(["dist", "coverage", "playwright-report", "test-results"]),
   {
     files: ["**/*.{js,ts,tsx}"],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-    ],
+    extends: [js.configs.recommended, tseslint.configs.recommended],
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
@@ -26,7 +23,7 @@ export default defineConfig(
       "react-hooks/exhaustive-deps": "warn",
       "react-refresh/only-export-components": [
         "warn",
-        { "allowConstantExport": true },
+        { allowConstantExport: true },
       ],
     },
   },
