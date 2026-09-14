@@ -21,6 +21,9 @@ async function seed(page: Page) {
 test.beforeEach(async ({ page }) => {
   errors.length = 0;
   page.on("pageerror", (error) => errors.push(error.message));
+  page.on("console", (message) => {
+    if (message.type() === "error") errors.push(message.text());
+  });
 });
 test.afterEach(() => {
   expect(errors).toEqual([]);

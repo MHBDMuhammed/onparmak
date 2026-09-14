@@ -234,11 +234,11 @@ export function Settings({
             </button>
           </div>
         </section>
-        <p className="settings-version">
+        <div className="settings-version">
           <Brand compact />
           Onparmak 1.0 · Türkçe Q · İnternetsiz çalışır · Verin cihazından
           çıkmaz.
-        </p>
+        </div>
       </div>
       {reset && (
         <Modal title="İlerlemeni sıfırla" onClose={() => setReset(false)}>
