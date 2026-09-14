@@ -1,0 +1,78 @@
+name: İyileştirme önerisi
+description: Onparmak'ın çözeceği kullanıcı problemini ve öğrenme etkisini anlatın.
+title: "feature: "
+labels: [enhancement, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Onparmak basit, statik ve local-first kalır. Backend, hesap, telemetry, analytics veya zorunlu harici servis önerileri proje kapsamı dışındadır.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Kullanıcı problemi
+      description: Bir özellik adı vermeden önce kullanıcının bugün nerede ve neden zorlandığını anlatın.
+      placeholder: "... olduğunda kullanıcı ... yapamıyor; bunun sonucu ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: İstenen sonuç
+      description: Başarılı bir çözüm kullanıcı için neyi değiştirmeli?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Önerilen yaklaşım
+      description: Aklınızdaki çözümü ve daha küçük bir çözümün yeterli olup olmadığını açıklayın.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: learning
+    attributes:
+      label: Eğitim davranışını etkiliyor mu?
+      options:
+        - Evet; müfredat, mastery, adaptasyon veya ölçümü değiştiriyor
+        - Dolaylı olarak; çalışma deneyimini değiştiriyor
+        - Hayır; bakım, dokümantasyon veya geliştirici deneyimi
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Öğrenme etkisi
+      description: Eğitim davranışı değişiyorsa doğru alışkanlık, doğruluk, ritim veya transfer üzerindeki beklenen etkiyi açıklayın.
+
+  - type: dropdown
+    id: privacy
+    attributes:
+      label: Ağ veya veri etkisi
+      options:
+        - Yok; tamamen mevcut yerel veriyle çalışır
+        - Yeni yerel veri veya storage değişikliği gerekir
+        - Harici ağ veya kullanıcı verisi gerekir
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Değerlendirilen alternatifler
+      description: Mevcut ürün davranışıyla veya daha küçük bir değişiklikle çözülebilir mi?
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Kontrol
+      options:
+        - label: Mevcut issue ve pull request'lerde benzer öneriyi aradım.
+          required: true
+        - label: Öneri Onparmak'ın statik ve local-first ürün sınırlarıyla uyumlu.
+          required: true
