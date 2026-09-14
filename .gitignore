@@ -1,6 +1,16 @@
 node_modules
 dist
+coverage
 test-results
 playwright-report
 *.tsbuildinfo
+*.log
+.env
+.env.*
+!.env.example
+.idea
+.vscode/*
+!.vscode/extensions.json
+package-lock.json
+yarn.lock
 .DS_Store
