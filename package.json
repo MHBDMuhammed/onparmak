@@ -2,6 +2,18 @@
   "name": "onparmak",
   "private": true,
   "version": "1.0.0",
+  "description": "Türkçe Q klavyede on parmak yazmayı öğreten, gizlilik odaklı ve çevrimdışı çalışabilen web uygulaması.",
+  "license": "MIT",
+  "author": "Muhammed Bodruk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MHBDMuhammed/onparmak.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MHBDMuhammed/onparmak/issues"
+  },
+  "homepage": "https://mhbdmuhammed.github.io/onparmak/",
+  "keywords": ["typing", "touch-typing", "turkish", "keyboard", "education"],
   "type": "module",
   "engines": {
     "node": ">=22.12.0 <25",
